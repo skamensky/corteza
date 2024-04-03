@@ -1,6 +1,6 @@
 <template>
   <b-modal
-    :visible="showModal"
+    :visible="true"
     :title="$t('recordList.filterPresets.saveFilterAsPreset')"
     body-class="p-0"
     footer-class="d-flex w-100 align-items-center justify-content-between"

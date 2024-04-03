@@ -77,13 +77,13 @@
 
           <div>
             <b-button
-              variant="link"
+              variant="light"
               rounded
-              class="text-primary"
               @click="onModalHide"
             >
               {{ $t('general.label.cancel') }}
             </b-button>
+
             <b-button
               variant="primary"
               :disabled="!fields.length || processing"
