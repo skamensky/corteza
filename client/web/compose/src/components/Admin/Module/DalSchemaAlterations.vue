@@ -135,7 +135,7 @@
       <b-button
         :disabled="processing"
         class="text-primary border-0"
-        :variant="canResolveAlterations ? 'light' : 'outline-light'"
+        variant="light"
         @click="showModal = false"
       >
         {{ canResolveAlterations ? $t('general:label.cancel') : $t('general:label.close') }}
