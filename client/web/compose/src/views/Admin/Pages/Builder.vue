@@ -187,7 +187,7 @@
       scrollable
       :ok-title="$t('build.addBlock')"
       ok-variant="primary"
-      cancel-variant="link"
+      cancel-variant="light"
       :cancel-title="$t('block.general.label.cancel')"
       size="xl"
       :visible="showCreator"

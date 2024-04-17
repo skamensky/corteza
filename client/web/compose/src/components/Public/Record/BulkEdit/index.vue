@@ -75,7 +75,7 @@
             {{ $t('recordList.bulkRecord.reset') }}
           </b-button>
 
-          <div>
+          <div class="d-flex gap-1">
             <b-button
               variant="light"
               rounded
