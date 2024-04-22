@@ -125,6 +125,8 @@
         </b-col>
       </b-row>
 
+      <hr>
+
       <b-row>
         <b-col
           cols="12"
@@ -136,6 +138,7 @@
           >
             <b-input
               v-model="report.metricFormatter.numberFormat"
+              :disabled="report.metricFormatter.presetFormat !== 'noFormat'"
               placeholder="0.00"
             />
           </b-form-group>
@@ -185,69 +188,12 @@
           >
             <b-form-select
               v-model="report.metricFormatter.presetFormat"
+              :disabled="!!report.metricFormatter.numberFormat"
               :options="presetFormattedOptions.formatOptions"
             />
           </b-form-group>
         </b-col>
       </b-row>
-    </template>
-
-    <template #additional-config="{ report }">
-      <hr>
-      <div class="px-3">
-        <h5 class="mb-3">
-          {{ $t('edit.additionalConfig.tooltip.label') }}
-        </h5>
-
-        <b-row>
-          <b-col
-            cols="12"
-            md="6"
-          >
-            <b-form-group
-              :label="$t('numberFormat')"
-              label-class="text-primary"
-            >
-              <b-input
-                v-model="report.tooltipFormatter.numberFormat"
-                placeholder="0.00"
-              />
-            </b-form-group>
-          </b-col>
-
-          <b-col
-            cols="12"
-            md="6"
-          >
-            <b-form-group
-              :label="$t('prefix')"
-              label-class="text-primary"
-            >
-              <b-input
-                v-model="report.tooltipFormatter.prefix"
-                placeholder="USD/mo"
-              />
-            </b-form-group>
-          </b-col>
-        </b-row>
-
-        <b-row>
-          <b-col
-            cols="12"
-            md="6"
-          >
-            <b-form-group
-              :label="$t('suffix')"
-              label-class="text-primary"
-            >
-              <b-input
-                v-model="report.tooltipFormatter.suffix"
-                placeholder="$"
-              />
-            </b-form-group>
-          </b-col>
-        </b-row>
-      </div>
     </template>
   </report-edit>
 </template>

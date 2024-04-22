@@ -93,6 +93,20 @@ export default class FunnelChart extends BaseChart {
     const { legend: l, tooltipFormatter, metricFormatter } = reports[0] || {}
     const colors = getColorschemeColors(colorScheme, data.customColorSchemes)
 
+    const {
+      numberFormat: metricNumForm = '',
+      prefix: metricPref = '',
+      suffix: metricSuff = '',
+      presetFormat: metricPresForm = '',
+    } = metricFormatter || {}
+
+    const {
+      numberFormat: tooltipNumForm = '',
+      prefix: tooltipPref = '',
+      suffix: tooltipSuff = '',
+      presetFormat: tooltipPresForm = '',
+    } = tooltipFormatter || {}
+
     return {
       animation: !noAnimation,
       textStyle: {
@@ -114,9 +128,13 @@ export default class FunnelChart extends BaseChart {
         trigger: 'item',
         formatter: (params: { seriesName: string, name: string, value: string | number, percent: string | number }): string => {
           const { name = '', value = '' || 0, percent = '' || 0 } = params
-          const { numberFormat = '', prefix = '', suffix = '', presetFormat = '' } = tooltipFormatter || {}
 
-          return `${name}<br />${formatChartValue(value, { numberFormat, prefix, suffix, presetFormat })} ${tooltip.relative ? ` (${percent}%)` : ''}`
+          return `${name}<br />${formatChartValue(value, {
+            numberFormat: metricNumForm,
+            prefix: metricPref,
+            suffix: metricSuff,
+            presetFormat: metricPresForm,
+          })} ${tooltip.relative ? ` (${percent}%)` : ''}`
         },
         appendToBody: true,
       },

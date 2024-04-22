@@ -115,6 +115,7 @@ export interface Report {
   offset?: ChartOffset;
   tooltipFormatter?: FormatData;
   metricFormatter?: FormatData;
+  yAxisFormatter?: FormatData;
 }
 
 export interface ChartToolbox {
